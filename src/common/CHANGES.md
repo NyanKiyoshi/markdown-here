@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+2018-06-18: v2.13.3.1
+---------------------
+
+* [Feature #1](https://github.com/NyanKiyoshi/markdown-here/pull/1): Replacing fake tabs (`\t`) to HTML spaces entities.
+
 2017-xx-yy: v2.13.3
 --------------------
 

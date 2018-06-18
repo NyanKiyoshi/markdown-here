@@ -6,12 +6,17 @@
 
 ;(function() {
 
+const TAB_NUMBER_SPACES = 2;
+const HTML_SPACE_ENTITY = '&nbsp;';
+const SINGLE_TAB = HTML_SPACE_ENTITY.repeat(TAB_NUMBER_SPACES);
+
 /**
  * Block-Level Grammar
  */
 
 var block = {
   newline: /^\n+/,
+  tabulation: /^\\t/,
   code: /^( {4}[^\n]+\n*)+/,
   fences: noop,
   hr: /^( *[-*_]){3,} *(?:\n+|$)/,
@@ -167,6 +172,16 @@ Lexer.prototype.token = function(src, top, bq) {
           type: 'space'
         });
       }
+    }
+
+    // tabulations
+    let tabCount = 0;
+    while (cap = this.rules.tabulation.exec(src)) {
+      src = src.substring(cap[0].length);
+      ++tabCount;
+    }
+    if (tabCount) {
+      src = SINGLE_TAB.repeat(tabCount) + src;
     }
 
     // code

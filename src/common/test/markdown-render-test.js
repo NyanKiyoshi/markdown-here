@@ -31,6 +31,18 @@ describe('Markdown-Render', function() {
       expect(MarkdownRender.markdownRender('', userprefs, marked, hljs)).to.equal('');
     });
 
+    it('should replace single fake tab at the line beginning with 2 spaces', function() {
+      var s = '\\tHello World!';
+      var target = '<p>&nbsp;&nbsp;Hello World!</p>\n';
+      expect(MarkdownRender.markdownRender(s, userprefs, marked, hljs)).to.equal(target);
+    });
+
+    it('should replace fake 3 tabs at the line beginning with 6 spaces', function() {
+      var s = '\\t\\t\\tHello World!';
+      var target = '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello World!</p>\n';
+      expect(MarkdownRender.markdownRender(s, userprefs, marked, hljs)).to.equal(target);
+    });
+
     // Test the fix for https://github.com/adam-p/markdown-here/issues/51
     it('should correctly handle links with URL text', function() {
       var s = '[http://example1.com](http://example2.com)';

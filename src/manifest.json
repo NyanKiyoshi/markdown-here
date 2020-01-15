@@ -50,11 +50,5 @@
       "strict_min_version": "68.0"
     }
   }
-  ,"legacy": {
-    "type": "xul",
-    "options": {
-      "page": "common/options.html",
-      "open_in_tab": true
-    }
-  }
+  ,"legacy": true
 }

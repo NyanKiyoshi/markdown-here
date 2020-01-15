@@ -9,7 +9,7 @@
 var fs = require('fs');
 var file = require('file');
 var archiver = require('archiver');
-var MetaScript = require('MetaScript');
+var MetaScript = require('metascript');
 
 
 var BASE_DIR = '..';
@@ -22,7 +22,7 @@ var THUNDERBIRD_EXTENSION = file.path.join(DIST_DIR, 'thunderbird.xpi');
 
 var CHROME_INPUT = [/^manifest\.json$/, /^common(\\|\/)/, /^chrome(\\|\/)/, /^_locales(\\|\/)/];
 var FIREFOX_INPUT = CHROME_INPUT;
-var THUNDERBIRD_INPUT = [/^chrome.manifest$/, /^install.rdf$/, /^common(\\|\/)/, /^firefox(\\|\/)/];
+var THUNDERBIRD_INPUT = [/^manifest\.json$/, /^chrome.manifest$/, /^install.rdf$/, /^common(\\|\/)/, /^firefox(\\|\/)/, /^_locales(\\|\/)/];
 
 var CHROME_PLATFORM = 'chrome';
 var FIREFOX_PLATFORM = 'firefox';

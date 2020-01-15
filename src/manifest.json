@@ -12,7 +12,7 @@
     "128": "common/images/icon128.png",
     "512": "common/images/icon512.png"
   },
-  "permissions": ["contextMenus", "storage"],
+  "permissions": ["menus", "storage"],
   "background": {"page": "chrome/background.html"},
   "content_scripts": [
     {
@@ -46,7 +46,15 @@
 
   ,"applications": {
     "gecko": {
-      "id": "markdown-here-webext@adam.pritchard"
+      "id": "markdown-here-webext@adam.pritchard",
+      "strict_min_version": "68.0"
+    }
+  }
+  ,"legacy": {
+    "type": "xul",
+    "options": {
+      "page": "common/options.html",
+      "open_in_tab": true
     }
   }
 }
